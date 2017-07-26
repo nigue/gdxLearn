@@ -1,0 +1,2 @@
+
+mvn archetype:generate -DarchetypeGroupId=com.badlogic.gdx -DarchetypeArtifactId=gdx-archetype -DarchetypeVersion=1.2.0 -DgroupId=com.gdx.learn -DartifactId=01-SimpleGame -Dversion=1.0-SNAPSHOT -Dpackage=com.gdx.learn -DJavaGameClassName=SimpleGame
