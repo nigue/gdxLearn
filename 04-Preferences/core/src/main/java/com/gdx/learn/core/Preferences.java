@@ -14,6 +14,17 @@ public class Preferences implements ApplicationListener {
 
     @Override
     public void create() {
+        
+        com.badlogic.gdx.Preferences prefs = Gdx.app.getPreferences("My_Preferences");
+
+        prefs.putString("name", "dinosaur");
+        String name = prefs.getString("name", "No name stored");
+        System.out.println("name: " + name);
+        prefs.putBoolean("blabla", true);
+        prefs.putInteger("hola mundo", 10);
+        
+        prefs.flush();
+        
         texture = new Texture(Gdx.files.internal("libgdx-logo.png"));
         batch = new SpriteBatch();
     }
@@ -24,16 +35,6 @@ public class Preferences implements ApplicationListener {
 
     @Override
     public void render() {
-        com.badlogic.gdx.Preferences prefs = Gdx.app.getPreferences("My_Preferences");
-
-        prefs.putString("name", "Donald Duck");
-        String name = prefs.getString("name", "No name stored");
-
-        prefs.putBoolean("soundOn", true);
-        prefs.putInteger("highscore", 10);
-        
-        prefs.flush();
-
         elapsed += Gdx.graphics.getDeltaTime();
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL30.GL_COLOR_BUFFER_BIT);
