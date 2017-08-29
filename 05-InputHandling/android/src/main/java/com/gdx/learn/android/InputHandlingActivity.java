@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.gdx.learn.core.query.impl.AndroidQueryImpl;
 
 public class InputHandlingActivity extends AndroidApplication {
 
@@ -13,6 +14,6 @@ public class InputHandlingActivity extends AndroidApplication {
 	public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-			initialize(new InputHandling(), config);
+			initialize(new InputHandling(new AndroidQueryImpl()), config);
 	}
 }
