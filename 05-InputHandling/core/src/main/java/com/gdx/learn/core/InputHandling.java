@@ -44,7 +44,7 @@ public class InputHandling implements ApplicationListener {
         
         batch.begin();
         batch.draw(texture, 100 + 100 * (float) Math.cos(elapsed), 100 + 25 * (float) Math.sin(elapsed));
-        font.draw(batch, text, 200, 200);
+        font.draw(batch, text, 100, 100);
         batch.end();
     }
 
