@@ -1,19 +1,20 @@
 package com.gdx.learn.core.query.impl;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Peripheral;
 import com.gdx.learn.core.query.QueryService;
 
 public class AndroidQueryImpl implements QueryService {
 
     @Override
     public String loging() {
-
         String result = "";
-        boolean hardwareKeyboard = Gdx.input.isPeripheralAvailable(Peripheral.HardwareKeyboard);
-        boolean multiTouch = Gdx.input.isPeripheralAvailable(Peripheral.MultitouchScreen);
-        
-        result= "hardwareKeyboard: " + hardwareKeyboard + " multiTouch: " + multiTouch;
+        for (int i = 0; i <= 3; i++) {
+            if (Gdx.input.isTouched(i)) {
+                int fX = Gdx.input.getX(1);
+                int fY = Gdx.input.getY(1);
+                result = result + " | Fr" + i + ": " + fX + ", " + fY;
+            }
+        }
         return result;
     }
 

@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.gdx.learn.core.query.QueryService;
@@ -18,10 +19,10 @@ public class PollingHandling implements ApplicationListener {
 
     private QueryService queryService;
 
-    public PollingHandling(QueryService queryService){
+    public PollingHandling(QueryService queryService) {
         this.queryService = queryService;
     }
-    
+
     @Override
     public void create() {
         texture = new Texture(Gdx.files.internal("libgdx-logo.png"));
@@ -39,13 +40,16 @@ public class PollingHandling implements ApplicationListener {
         elapsed += Gdx.graphics.getDeltaTime();
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL30.GL_COLOR_BUFFER_BIT);
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            Gdx.app.exit();
+        }
 
         String text = queryService.loging();
 
         batch.begin();
         batch.draw(texture, 100 + 100 * (float) Math.cos(elapsed), 100 + 25 * (float) Math.sin(elapsed));
 
-        font.draw(batch, text, 100, 100);
+        font.draw(batch, text, 200, 200);
         batch.end();
     }
 
